@@ -4,7 +4,7 @@
     <a-row>
       <a-icon type="copyright" />
       <span>2019 erik</span>
-      <span>沪ICP备17028213号</span>
+      <!-- <span>沪ICP备17028213号</span> -->
     </a-row>
     
   </div>
