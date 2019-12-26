@@ -34,7 +34,8 @@ module.exports = {
   */
   plugins: [
     '@/plugins/antd-ui',
-    '@/plugins/highlight'
+    '@/plugins/highlight',
+    '@/plugins/axios'
   ],
 
   /*
@@ -49,24 +50,27 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/proxy'
   ],
-    /*
-  **axios
-  */
- axios:{
-  proxy:true,
- },
+  /*
+**axios
+*/
+  axios: {
+    proxy: true,
+  },
   /*
   ** proxy
   */
- proxy:{
-   '/api':{
-     target:'http://localhost:3000/api',
-     pathRewrite:{
-       '^/api':''
-     }
-   }
- },
-
+  proxy: {
+    '/api': {
+      target: 'http://localhost:3000/api',
+      pathRewrite: {
+        '^/api': ''
+      }
+    }
+  },
+  server: {
+    port: 3001,
+    host: 'localhost'
+  },
   /*
   ** Build configuration
   */

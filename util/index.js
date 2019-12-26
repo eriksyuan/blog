@@ -4,6 +4,7 @@ import moment from 'moment'
 export function dateDeal(time) {
   let times = moment(time);
   let now = moment();
+  let mistiming = now.diff(times, "days");
   let mistimingHour = now.diff(times, "hours");
   let mistimingMinutes = now.diff(times, "minutes");
   if (mistimingMinutes <= 60) {

@@ -24,7 +24,7 @@ import axios from "axios";
 import { dateDeal } from "~/util";
 export default {
   asyncData({ params }) {
-    return axios.get("/api/detail?id=" + params.id).then(res => {
+    return axios.get("http://localhost:3000/api/detail?id=" + params.id).then(res => {
       return { data: res.data.data };
     });
   },
