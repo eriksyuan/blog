@@ -51,10 +51,8 @@ html {
 }
 
 body {
-    background-image: url(/imgs/bg.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    height: 100vh;
+    background: #16C3C3;
+    min-height: 100vh;
     width: 100%;
 }
 

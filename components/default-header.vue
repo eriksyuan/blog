@@ -11,9 +11,9 @@
                 <a-icon type="home" />首页
               </a>
             </a-menu-item>
-            <a-menu-item key="book">
+            <!-- <a-menu-item key="book">
               <a-icon type="book" />文章
-            </a-menu-item>
+            </a-menu-item> -->
           </a-menu>
         </ul>
       </div>
@@ -57,10 +57,6 @@ export default {
         background-color: transparent;
         border: none;
         line-height: 65px;
-        
-        .ant-menu-item {
-         
-        }
       }
     }
   }

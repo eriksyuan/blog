@@ -10,7 +10,6 @@
 import ArticleCard from "~/components/common/article-card.vue";
 import axios from 'axios'
 export default {
-  layout:'index',
   asyncData({isDev, route, store, env, params, query, req, res, redirect, error}) {
    return axios.get('http://localhost:3000/api/articles').then(res=>{
       return {articles:res.data.data.articles}

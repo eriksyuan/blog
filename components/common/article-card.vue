@@ -16,10 +16,10 @@
               <a-icon type="eye" />
               {{article.readNum}}热度
             </p>
-            <p class="text1">
+            <!-- <p class="text1">
               <a-icon type="message" />
               {{article.comment.length}}评论
-            </p>
+            </p> -->
             <p class="text1">
               <a-icon type="folder" />
               {{article.classify.name}}
