@@ -1,11 +1,11 @@
-
+const { resolve } = require('path')
 module.exports = {
   mode: 'universal',
   /*
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: '艾瑞克是羊',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -35,7 +35,8 @@ module.exports = {
   plugins: [
     '@/plugins/antd-ui',
     '@/plugins/highlight',
-    '@/plugins/axios'
+    '@/plugins/axios',
+    '@/plugins/svg'
   ],
 
   /*
@@ -79,6 +80,15 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      const svgRule = config.module.rules.find(rule => rule.test.test('.svg'))
+      svgRule.exclude = [resolve(__dirname, 'assets/svg')]
+
+      // svg 加载
+      config.module.rules.push({
+        test: /\.svg$/,
+        include: [resolve(__dirname, 'assets/svg')],
+        loader: 'svg-sprite-loader'
+      })
     }
   }
 }

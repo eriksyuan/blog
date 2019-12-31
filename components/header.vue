@@ -1,15 +1,16 @@
 <template>
   <header class="index" :style="{height:bgcHeight==0?'100vh':bgcHeight+'px'}">
-    <div class="header" :class="{scrolled:scrolled}">
+    <div :class="{scrolled:scrolled,header:true}">
       <div class="contain">
         <div class="left-logo">
-          <p>Eriksyuan.blog</p>
+          <p>艾瑞克是羊</p>
         </div>
         <ul class="menu-box">
           <a-menu class="menu" mode="horizontal" :selectable="false" theme="light">
-            
             <a-menu-item key="home">
-              <a href="/"><a-icon type="home" />首页</a>  
+              <a href="/">
+                <a-icon type="home" />首页
+              </a>
             </a-menu-item>
             <a-menu-item key="book">
               <a-icon type="book" />文章
@@ -18,11 +19,9 @@
         </ul>
       </div>
     </div>
-    <div class="bgimg" :style="{height:bgcHeight==0?'100vh'+'px':bgcHeight+'pxs'}">
+    <div class="bgimg" :style="{height:bgcHeight==0?'100vh'+'px':bgcHeight+'px'}">
       <div class="text">
-        <p class="title">{{headerInfo.title?headerInfo.title:''}}</p>
-        <p>{{headerInfo.writeDate?headerInfo.writeDate:''}}</p>
-        <p>{{headerInfo.fontCount?headerInfo.fontCount:''}} {{headerInfo.writeTime?headerInfo.writeTime:''}}</p>
+        <h1 class="title">{{timeFilter}}</h1>
       </div>
     </div>
   </header>
@@ -30,6 +29,8 @@
 
 
 <script>
+import { timeFix } from "~/util";
+
 export default {
   data() {
     return {
@@ -49,7 +50,11 @@ export default {
       default: 0
     }
   },
-  computed: {},
+  computed: {
+    timeFilter() {
+      return timeFix();
+    }
+  },
   mounted() {
     window.addEventListener("scroll", this.scroll);
   },
@@ -57,7 +62,6 @@ export default {
     window.removeEventListener("scroll", this.scroll);
   },
   methods: {
-   
     scroll() {
       var scrollTop =
         window.pageYOffset ||
@@ -82,7 +86,7 @@ header.index {
   height: 100vh;
   width: 100%;
   .bgimg {
-    background-image: url(https://cdn.jsdelivr.net/gh/0x2e/static/blog/post.jpg);
+    background-image: url(/imgs/home.jpg);
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
@@ -100,16 +104,19 @@ header.index {
       width: 50%;
       margin: auto;
       height: 50px;
-      color: #fff;
       .title {
         font-size: 30px;
+        text-align: center;
+        color: #fff;
+        font-size: 80px;
       }
     }
   }
-  .scrolled {
+  .header.scrolled {
     background-color: #fff;
   }
   .header {
+    background: none;
     top: 0;
     position: fixed;
     height: 65px;
@@ -125,6 +132,10 @@ header.index {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      .left-logo {
+        font-size: 2rem;
+        color: #333;
+      }
       .menu-box {
         margin: 0;
         .menu {

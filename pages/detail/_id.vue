@@ -6,13 +6,13 @@
         <h1>{{data.detail.title}}</h1>
         <p>
           <span>{{date}}</span>
-          <span style="margin-left:10px">1312次阅读</span>
+          <span style="margin-left:10px">{{data.detail.readNum+'次阅读'}}</span>
         </p>
       </header>
     </div>
-    <div class="detail">
-      <div v-highlight v-html="content"></div>
-    </div>
+    <div class="detail" v-highlight v-html="content"></div>
+    <a-divider >感谢 阅读</a-divider>
+    <next-post :last="data.last" :next="data.next"/>
   </div>
 </template>
 
@@ -22,11 +22,18 @@ import mavonEdit from "mavon-editor";
 import marked from "marked";
 import axios from "axios";
 import { dateDeal } from "~/util";
+import nextPost from "~/components/common/next-post";
 export default {
-  asyncData({ params }) {
-    return axios.get("http://localhost:3000/api/detail?id=" + params.id).then(res => {
-      return { data: res.data.data };
-    });
+  asyncData({ params, redirect }) {
+    return axios
+      .get("http://localhost:3000/api/detail?id=" + params.id)
+      .then(res => {
+        if (res.data.status === 0) {
+          return { data: res.data.data };
+        } else {
+          return redirect("/");
+        }
+      });
   },
   computed: {
     content() {
@@ -36,7 +43,15 @@ export default {
       return dateDeal(this.data.detail.createTime);
     }
   },
-  methods: {}
+  head() {
+    return {
+      title: this.data.detail.title
+    };
+  },
+  methods: {},
+  components: {
+    nextPost
+  }
 };
 </script>
 

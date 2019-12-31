@@ -44,16 +44,43 @@ html {
     outline: none;
     z-index: 101;
 }
-.ant-layout .v-note-wrapper{
-    z-index:100;
+
+.ant-layout .v-note-wrapper {
+    z-index: 100;
     min-height: 100vh;
 }
 
-body{
-    background-image: url(https://api.shino.cc/bing/);
+body {
+    background-image: url(/imgs/bg.jpg);
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
     width: 100%;
 }
 
+img {
+    max-width: 100%;
+}
+
+.hvr-sweep-to-right:before {
+    background: rgba(0, 0, 0, .5);
+}
+
+p {
+    margin: 0;
+}
+
+.detail p, .detail li {
+    line-height: 30px;
+    color: #797979;
+}
+
+.detail h3, .detail h4, .detail h5.detail h6 {
+    padding-left: 16px;
+}
+
+.detail h3, .detail h4, .detail h5 ,.detail h6 {
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 8px;
+    color: #676767;
+}
