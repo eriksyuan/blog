@@ -1,15 +1,6 @@
 <template>
   <div>
-    <div class="top">
-      <div class="image" :style="'background-image:url('+data.detail.image+')'"></div>
-      <header class="article-title">
-        <h1>{{data.detail.title}}</h1>
-        <p>
-          <span>{{date}}</span>
-          <span style="margin-left:10px">{{data.detail.readNum+'次阅读'}}</span>
-        </p>
-      </header>
-    </div>
+    <top-image type="detail" :title="data.detail.title" :time="date" :image="data.detail.image" :readNum="String(data.detail.readNum)" />
     <div class="detail" v-highlight v-html="content"></div>
     <a-divider >感谢 阅读</a-divider>
     <next-post :last="data.last" :next="data.next"/>
@@ -23,6 +14,7 @@ import marked from "marked";
 import axios from "axios";
 import { dateDeal } from "~/util";
 import nextPost from "~/components/common/next-post";
+import topImage from '~/components/common/top-image'
 export default {
   asyncData({ params, redirect }) {
     return axios
@@ -31,7 +23,7 @@ export default {
         if (res.data.status === 0) {
           return { data: res.data.data };
         } else {
-          return redirect("/");
+          return redirect("/404");
         }
       });
   },
@@ -50,44 +42,14 @@ export default {
   },
   methods: {},
   components: {
-    nextPost
+    nextPost,
+    topImage
   }
 };
 </script>
 
 
 <style lang="scss" scoped>
-.top {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-  .image {
-    height: 400px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .article-title {
-    padding: 20px;
-    position: absolute;
-    bottom: 0;
-    color: #fff;
-    z-index: 11;
-    h1 {
-      color: #fff;
-    }
-  }
-}
 .detail {
   padding: 0 10px;
   margin-top: 20px;

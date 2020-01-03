@@ -7,7 +7,7 @@ let Highlight = {};
 Highlight.install = function (Vue) {
     // 自定义指令 v-highlight
     Vue.directive('highlight', {
-        // 被绑定元素插入父节点时调用
+        // 被绑定元素插入父节点时调 
         inserted: function(el) {
             let blocks = el.querySelectorAll('pre code');
             for (let i = 0; i < blocks.length; i++) {

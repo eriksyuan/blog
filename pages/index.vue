@@ -1,12 +1,14 @@
 <template>
   <div class="container">
     <div class="content">
+      <top-image title="艾瑞克是羊" image="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577886089227&di=94d84cdc17fcad140c4ac79afc61e92c&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20170925%2Fab24599589ab4f8e926956c70d5fe4b5.gif"/>
       <article-card v-for="(item,index) of articles" :article="item" :key="index" :start="index%2==0?'right':''" />
     </div>
   </div>
 </template>
 
 <script>
+import TopImage from '~/components/common/top-image'
 import ArticleCard from "~/components/common/article-card.vue";
 import axios from 'axios'
 export default {
@@ -26,7 +28,8 @@ export default {
   methods:{
   },
   components: {
-    ArticleCard
+    ArticleCard,
+    TopImage
   }
 };
 </script>

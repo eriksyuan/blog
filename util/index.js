@@ -20,7 +20,7 @@ export function dateDeal(time) {
   } else if (mistiming <= 7) {
     return mistiming + "天前";
   } else {
-    return times.format("YYYY-MM-DD");
+    return times.format("YYYY-MM-DD HH:mm:ss");
   }
 }
 
