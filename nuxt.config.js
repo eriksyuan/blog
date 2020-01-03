@@ -34,7 +34,6 @@ module.exports = {
   */
   plugins: [
     '@/plugins/antd-ui',
-    '@/plugins/highlight',
     '@/plugins/axios',
     '@/plugins/svg'
   ],
