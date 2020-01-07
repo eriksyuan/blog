@@ -34,3 +34,8 @@ PromiseForEach(list, (number) => {
     console.log("失败");
     console.log(err)
 }); 
+
+
+const list  = [
+    {title:'ssss',top:12,child:[{title:'nnn',top:13,child:[]}]}
+]

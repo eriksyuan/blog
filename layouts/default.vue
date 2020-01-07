@@ -1,31 +1,32 @@
 <template>
-  <div>
+  <div class="layout">
     <default-header></default-header>
-    <goto-top />
     <div style="height:65px"></div>
-    <content-box>
-      <nuxt />
-    </content-box>
+    <nuxt />
   </div>
 </template>
 
 
 <script>
 import DefaultHeader from "~/components/default-header.vue";
-import GotoTop from "~/components/common/goto-top.vue";
+
 import globalFooter from "~/components/footer.vue";
-import contentBox from "~/components/content-box";
+
 export default {
   data() {
     return {};
   },
+  mounted() {
+    console.log(this.$route);
+  },
   components: {
     DefaultHeader,
-    GotoTop,
-    globalFooter,
-    contentBox
+    globalFooter
   }
 };
 </script>
 <style>
+.layout {
+  position: relative;
+}
 </style>

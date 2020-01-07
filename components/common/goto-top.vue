@@ -40,7 +40,7 @@ export default {
         document.body.scrollTop;
 
       this.scrollTop = scrollTop;
-      // eslint-disable-next-line no-console
+      this.$emit("change", scrollTop);
       if (scrollTop >= 1000) {
         this.topLineStyle = {
           top: "-10rem"

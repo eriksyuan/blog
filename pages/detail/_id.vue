@@ -1,15 +1,23 @@
 <template>
   <div>
-    <top-image
-      type="detail"
-      :title="data.detail.title"
-      :time="date"
-      :image="data.detail.image"
-      :readNum="String(data.detail.readNum)"
-    />
-    <div class="detail" v-highlight v-html="content"></div>
-    <a-divider>感谢 阅读</a-divider>
-    <next-post :last="data.last" :next="data.next" />
+    <goto-top @change="scroll" />
+    <content-box>
+      <div slot="main">
+        <top-image
+          type="detail"
+          :title="data.detail.title"
+          :time="date"
+          :image="data.detail.image"
+          :readNum="String(data.detail.readNum)"
+        />
+        <div class="detail" v-html="content"></div>
+        <a-divider>感谢 阅读</a-divider>
+        <next-post :last="data.last" :next="data.next" />
+      </div>
+      <div slot="sticky">
+        <directory :top="top"/>
+      </div>
+    </content-box>
   </div>
 </template>
 
@@ -22,6 +30,9 @@ import axios from "axios";
 import { dateDeal } from "~/util";
 import nextPost from "~/components/common/next-post";
 import topImage from "~/components/common/top-image";
+import ContentBox from "~/components/content-box";
+import Directory from "~/components/directory";
+import GotoTop from "~/components/common/goto-top.vue";
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -49,6 +60,11 @@ export default {
         }
       });
   },
+  data() {
+    return {
+      top: 0
+    };
+  },
   computed: {
     content() {
       return marked(this.data.detail.content);
@@ -62,10 +78,17 @@ export default {
       title: this.data.detail.title
     };
   },
-  methods: {},
+  methods: {
+    scroll(top) {
+      this.top = top;
+    }
+  },
   components: {
     nextPost,
-    topImage
+    topImage,
+    ContentBox,
+    Directory,
+    GotoTop
   }
 };
 </script>
