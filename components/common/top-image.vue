@@ -1,13 +1,13 @@
 <template>
   <header class="top">
-    <div class="image" :style="'background-image:url('+image+')'"></div>
+    <div class="image">
+      <slot name="img"></slot>
+    </div>
     <div class="article-title">
-      <slot name="bottom">
-      </slot>
+      <slot name="bottom"></slot>
     </div>
     <div class="center">
-      <slot name="center">
-      </slot>
+      <slot name="center"></slot>
     </div>
   </header>
 </template>
@@ -31,6 +31,9 @@ export default {
   width: 100%;
   min-height: 400px;
   overflow: hidden;
+  h1 {
+    color: #fff;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -42,18 +45,19 @@ export default {
   }
   .image {
     height: 400px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
   }
   .article-title {
     padding: 20px;
     position: absolute;
     bottom: 0;
     color: #fff;
-    
   }
-  .center{
+  .center {
     position: absolute;
     top: 0;
     bottom: 0;

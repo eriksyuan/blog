@@ -1,24 +1,27 @@
-<template> 
-    <div class="header">
-      <div class="contain">
-        <div class="left-logo">
-          <h1>ERIKSYOUNG
-          </h1>
-        </div>
-        <ul class="menu-box">
-          <a-menu class="menu" mode="horizontal" :selectable="false" theme="light">
-            <a-menu-item key="home">
-              <a href="/">
-                <a-icon type="home" />首页
-              </a>
-            </a-menu-item>
-            <!-- <a-menu-item key="book">
-              <a-icon type="book" />文章
-            </a-menu-item> -->
-          </a-menu>
-        </ul>
+<template>
+  <div class="header">
+    <div class="contain">
+      <div class="left-logo">
+        <a href="/">
+          <h1>ERIKSYOUNG</h1>
+        </a>
       </div>
+      <ul class="menu-box">
+        <a-menu class="menu" mode="horizontal" :selectable="false" theme="light">
+          <a-menu-item key="home">
+            <a href="/">
+              <a-icon type="home" />首页
+            </a>
+          </a-menu-item>
+          <a-menu-item key="book">
+            <a href="/archives">
+              <a-icon type="book" />归档
+            </a>
+          </a-menu-item>
+        </a-menu>
+      </ul>
     </div>
+  </div>
 </template>
 
 
@@ -45,7 +48,7 @@ export default {
   background-color: #fff;
   box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.5);
   .contain {
-    padding:0 10px;
+    padding: 0 10px;
     max-width: 1000px;
     width: 100%;
     height: 100%;

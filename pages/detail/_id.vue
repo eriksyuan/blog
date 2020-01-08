@@ -3,7 +3,8 @@
     <goto-top @change="scroll" />
     <content-box>
       <div slot="main">
-        <top-image :image="data.detail.image">
+        <top-image>
+          <img :src="data.detail.image" slot="img" alt="">
           <div slot="bottom">
             <h1 style="color:#fff">{{data.detail.title}}</h1>
             <p>

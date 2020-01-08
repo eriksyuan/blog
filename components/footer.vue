@@ -6,10 +6,10 @@
       <span>eriksyoung's blog</span>
     </a-row>
     <a-row>
-      <a href="http://www.beian.miit.gov.cn/">浙ICP备20000511号-1</a>
+      <a target="_blank" href="http://www.beian.miit.gov.cn/">浙ICP备20000511号-1</a>
     </a-row>
     <a-row>
-      <a href="https://www.aliyun.com/">
+      <a target="_blank" href="https://www.aliyun.com/">
         <img class="logo" src="~/assets/imgs/aliyun.png" alt="阿里云">
       </a>    
     </a-row>
