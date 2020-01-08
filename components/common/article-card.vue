@@ -19,7 +19,7 @@
             <!-- <p class="text1">
               <a-icon type="message" />
               {{article.comment.length}}评论
-            </p> -->
+            </p>-->
             <p class="text1">
               <a-icon type="folder" />
               {{article.classify.name}}
@@ -72,7 +72,6 @@ export default {
   margin: 4rem 0;
   .right {
     flex-direction: row-reverse;
-    
   }
   .article-box {
     display: flex;
@@ -83,7 +82,7 @@ export default {
       width: 55%;
       overflow: hidden;
       img {
-        width: 100%;
+        object-fit: cover;
         height: 100%;
       }
     }
@@ -93,7 +92,7 @@ export default {
       justify-content: space-around;
       padding: 2rem;
       flex: 1;
-      color:#777;
+      color: #777;
       .title {
         font-size: 2rem;
         font-weight: bold;
@@ -102,6 +101,37 @@ export default {
       .row {
         display: flex;
         justify-content: space-around;
+      }
+    }
+  }
+}
+@media screen and (max-width: 760px) {
+  .card {
+    width: 100%;
+    height: auto;
+    .article-box {
+      flex-direction: column;
+      .image {
+        width: 100%;
+        height: 200px;
+        img {
+          width: 100%;
+        
+        }
+      }
+      .text {
+        width: 100%;
+        .title {
+          text-align: left;
+          line-height: 2;
+        }
+        .row {
+          justify-content: flex-start;
+          padding-bottom: 8px;
+          > p {
+            margin-right: 5px;
+          }
+        }
       }
     }
   }

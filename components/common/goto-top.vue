@@ -54,3 +54,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+@media screen and (max-width: 1020px) {
+  .DZLyl{
+    display: none;
+  }
+}
+</style>

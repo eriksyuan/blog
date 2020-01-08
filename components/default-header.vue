@@ -2,7 +2,8 @@
     <div class="header">
       <div class="contain">
         <div class="left-logo">
-          <p>Eriksyuan.blog</p>
+          <h1>ERIKSYOUNG
+          </h1>
         </div>
         <ul class="menu-box">
           <a-menu class="menu" mode="horizontal" :selectable="false" theme="light">
@@ -44,7 +45,8 @@ export default {
   background-color: #fff;
   box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.5);
   .contain {
-    max-width: 1140px;
+    padding:0 10px;
+    max-width: 1000px;
     width: 100%;
     height: 100%;
     margin: 0 auto;

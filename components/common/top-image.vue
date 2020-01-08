@@ -1,43 +1,20 @@
 <template>
-  <div class="top">
+  <header class="top">
     <div class="image" :style="'background-image:url('+image+')'"></div>
-    <header class="article-title">
-      <h1>{{title}}</h1>
-      <p v-if="type==='detail'">
-        <span>{{time}}</span>
-        <span style="margin-left:10px">{{readNum+'次阅读'}}</span>
-      </p>
-    </header>
-  </div>
+    <div class="article-title">
+      <slot name="bottom">
+      </slot>
+    </div>
+    <div class="center">
+      <slot name="center">
+      </slot>
+    </div>
+  </header>
 </template>
 
 <script>
 export default {
   props: {
-    title: {
-      type: String,
-      default: () => {
-        return "";
-      }
-    },
-    type: {
-      type: String,
-      default: () => {
-        return "";
-      }
-    },
-    time: {
-      type: String,
-      default: () => {
-        return "";
-      }
-    },
-    readNum: {
-      type: String,
-      default: () => {
-        return "";
-      }
-    },
     image: {
       type: String,
       default() {
@@ -52,7 +29,7 @@ export default {
 .top {
   position: relative;
   width: 100%;
-  height: 400px;
+  min-height: 400px;
   overflow: hidden;
   &::after {
     content: "";
@@ -74,10 +51,17 @@ export default {
     position: absolute;
     bottom: 0;
     color: #fff;
-    z-index: 11;
-    h1 {
-      color: #fff;
-    }
+    
+  }
+  .center{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>

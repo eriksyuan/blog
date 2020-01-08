@@ -2,9 +2,7 @@
   <div>
     <custom-header :headerInfo="headerInfo" />
     <goto-top />
-    <content-box>
-      <nuxt />
-    </content-box>
+    <nuxt />
   </div>
 </template>
 

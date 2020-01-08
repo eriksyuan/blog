@@ -9,7 +9,11 @@
       >
         <span @click="scrollTo(item.top)">{{item.title}}</span>
         <ul>
-          <li :class="`item ${title.active?'active':''} d2`" v-for="title in item.children" :key="title.top">
+          <li
+            :class="`item ${title.active?'active':''} d2`"
+            v-for="title in item.children"
+            :key="title.top"
+          >
             <span @click="scrollTo(title.top)">{{title.title}}</span>
           </li>
         </ul>
@@ -39,12 +43,12 @@ export default {
   },
   watch: {
     top(newTop, oldTop) {
-      let list = this.directory.filter(item => item.top < newTop+30);
+      let list = this.directory.filter(item => item.top < newTop + 30);
       if (list.length > 0) {
         let item = list.pop();
         this.directory.forEach(ele => {
-          if(ele.active){
-            ele.active=false
+          if (ele.active) {
+            ele.active = false;
           }
           if (ele.top === item.top) {
             ele.active = true;
@@ -104,7 +108,7 @@ export default {
 <style lang="scss" scoped>
 .directory {
   position: fixed;
-  max-width: 240px;
+  width: 240px;
   background-color: #fff;
   padding: 10px 0;
   .item {

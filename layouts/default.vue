@@ -3,6 +3,7 @@
     <default-header></default-header>
     <div style="height:65px"></div>
     <nuxt />
+    <global-footer></global-footer>
   </div>
 </template>
 

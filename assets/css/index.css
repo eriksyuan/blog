@@ -6,6 +6,9 @@ ul {
     margin: 0;
     list-style: none;
 }
+h1{
+    margin: 0;
+}
 .text2 {
     text-overflow: -o-ellipsis-lastline;
     overflow: hidden;
@@ -55,7 +58,7 @@ ul {
 }
 
 body {
-    background: #16C3C3;
+  
     min-height: 100vh;
     width: 100%;
 }

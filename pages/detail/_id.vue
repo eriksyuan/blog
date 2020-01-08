@@ -3,19 +3,21 @@
     <goto-top @change="scroll" />
     <content-box>
       <div slot="main">
-        <top-image
-          type="detail"
-          :title="data.detail.title"
-          :time="date"
-          :image="data.detail.image"
-          :readNum="String(data.detail.readNum)"
-        />
+        <top-image :image="data.detail.image">
+          <div slot="bottom">
+            <h1 style="color:#fff">{{data.detail.title}}</h1>
+            <p>
+              <span>{{date}}</span>
+              <span style="margin-left:10px">{{String(data.detail.readNum)+'次阅读'}}</span>
+            </p>
+          </div>
+        </top-image>
         <div class="detail" v-html="content"></div>
         <a-divider>感谢 阅读</a-divider>
         <next-post :last="data.last" :next="data.next" />
       </div>
       <div slot="sticky">
-        <directory :top="top"/>
+        <directory :top="top" />
       </div>
     </content-box>
   </div>
