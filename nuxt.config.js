@@ -82,6 +82,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+   publicPath:'http://cdn.yzting.cn/_nuxt/',
     extend(config, ctx) {
       const svgRule = config.module.rules.find(rule => rule.test.test('.svg'))
       svgRule.exclude = [resolve(__dirname, 'assets/svg')]
