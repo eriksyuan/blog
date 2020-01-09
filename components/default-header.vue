@@ -9,17 +9,14 @@
       <ul class="menu-box">
         <a-menu class="menu" mode="horizontal" :selectable="false" theme="light">
           <a-menu-item key="home">
-            <a href="/">
-              <a-icon type="home" />首页
-            </a>
+            <a href="/">首页</a>
           </a-menu-item>
           <a-menu-item key="book">
-            <a href="/archives">
-              <a-icon type="book" />归档
-            </a>
+            <a href="/archives">归档</a>
           </a-menu-item>
         </a-menu>
       </ul>
+      
     </div>
   </div>
 </template>

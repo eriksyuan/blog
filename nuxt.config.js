@@ -13,6 +13,9 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { src: 'https://hm.baidu.com/hm.js?5b4fa478c4e23084d1319d77903c3d48' }
     ]
   },
   /*
@@ -33,6 +36,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/baidu',
     '@/plugins/antd-ui',
     '@/plugins/axios',
     '@/plugins/svg'

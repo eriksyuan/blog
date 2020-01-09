@@ -1,10 +1,9 @@
 <template>
   <div>
-    <goto-top @change="scroll" />
     <content-box>
       <div slot="main">
         <top-image>
-          <img :src="data.detail.image" slot="img" alt="">
+          <img :src="data.detail.image" slot="img" alt />
           <div slot="bottom">
             <h1 style="color:#fff">{{data.detail.title}}</h1>
             <p>
@@ -35,7 +34,6 @@ import nextPost from "~/components/common/next-post";
 import topImage from "~/components/common/top-image";
 import ContentBox from "~/components/content-box";
 import Directory from "~/components/directory";
-import GotoTop from "~/components/common/goto-top.vue";
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -63,12 +61,16 @@ export default {
         }
       });
   },
+  inject: ["layout"],
   data() {
     return {
-      top: 0
+      
     };
   },
   computed: {
+    top() {
+      return this.layout.top;
+    },
     content() {
       return marked(this.data.detail.content);
     },
@@ -90,8 +92,7 @@ export default {
     nextPost,
     topImage,
     ContentBox,
-    Directory,
-    GotoTop
+    Directory
   }
 };
 </script>

@@ -6,7 +6,7 @@
           <img class="hvr-grow" :src="article.image" alt />
         </div>
         <div class="text">
-          <p>
+          <p class="time">
             <a-icon type="clock-circle" />
             发布于{{date}}
           </p>
@@ -111,12 +111,17 @@ export default {
     height: auto;
     .article-box {
       flex-direction: column;
+      
       .image {
         width: 100%;
         height: 200px;
         img {
           width: 100%;
-        
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .image {
+          height: 140px;
         }
       }
       .text {
@@ -126,11 +131,14 @@ export default {
           line-height: 2;
         }
         .row {
-          justify-content: flex-start;
+          justify-content: space-between;
           padding-bottom: 8px;
           > p {
             margin-right: 5px;
           }
+        }
+        .time {
+          // text-align: right;
         }
       }
     }
