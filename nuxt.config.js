@@ -15,7 +15,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      { src: 'https://hm.baidu.com/hm.js?5b4fa478c4e23084d1319d77903c3d48' }
+      { src: 'https://hm.baidu.com/hm.js?79132c65c4b25ed7593fa61d3ee54a20' }
     ]
   },
   /*
